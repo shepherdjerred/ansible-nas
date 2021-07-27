@@ -1,0 +1,14 @@
+---
+- name: install mosh
+  become: yes
+  package:
+    update_cache: yes
+    name:
+      - mosh
+- name: allowlist mosh (60001-69999)
+  become: yes
+  ufw:
+    rule: allow
+    proto: udp
+    from_port: '60001'
+    to_port: '69999'

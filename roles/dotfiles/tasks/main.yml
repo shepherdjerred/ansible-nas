@@ -36,7 +36,7 @@
     cmd: curl -sfL https://git.io/chezmoi | sh
     creates: ~/bin/chezmoi
 - name: apply chezmoi
-  shell: bin/chezmoi -v apply
+  shell: bin/chezmoi -v apply --force
 - name: fix ssh folder permissions
   file:
     path: "~/.ssh"
