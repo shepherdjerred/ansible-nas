@@ -14,7 +14,7 @@
 - name: copy config
   become: yes
   copy:
-    src: files/nas/resilio-sync-config.json
+    src: files/resilio-sync/resilio-sync-config.json
     dest: /etc/resilio-sync/config.json
 - name: enable resilio-sync service
   become: yes

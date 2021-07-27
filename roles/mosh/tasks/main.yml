@@ -5,10 +5,9 @@
     update_cache: yes
     name:
       - mosh
-- name: allowlist mosh (60001-69999)
+- name: allowlist mosh (60000-61000)
   become: yes
   ufw:
     rule: allow
     proto: udp
-    from_port: '60001'
-    to_port: '69999'
+    port: '60000:61000'

@@ -20,7 +20,7 @@
 - name: copy systemd config
   become: yes
   copy:
-    src: "files/nas/sonarr.service"
+    src: "files/sonarr/sonarr.service"
     dest: "/etc/systemd/system"
     owner: root
     group: root

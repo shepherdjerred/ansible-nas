@@ -14,14 +14,14 @@
 - name: copy aws credentials
   become: yes
   copy:
-    src: files/nas/route53-credentials
+    src: files/aws/route53-credentials
     dest: /root/.aws/credentials
     owner: root
     group: root
     mode: '600'
 - name: run certbot
   become: yes
-  command: certbot -n --agree-tos -m shepherdjerred@gmail.com --installer apache --dns-route53 -d nas.home.shepherdjerred.com
+  command: certbot -n --agree-tos -m shepherdjerred@gmail.com --installer apache --dns-route53 -d {{ domain }}
   register: certbot_output
 - name: install apache
   become: yes
@@ -43,41 +43,41 @@
   become: yes
   apache2_module:
     name: proxy_http
-- name: copy nas.conf site
+- name: copy http site
   become: yes
   copy:
-    src: "files/nas/nas.conf"
+    src: "{{ apache_http_site_file }}"
     dest: "/etc/apache2/sites-available"
     owner: root
     group: root
-- name: copy nas-ssl.conf site
+- name: copy https site
   become: yes
   copy:
-    src: "files/nas/nas-ssl.conf"
+    src: "{{ apache_https_site_file }}"
     dest: "/etc/apache2/sites-available"
     owner: root
     group: root
 - name: disable site (http)
   become: yes
-  command: a2dissite nas
+  command: "a2dissite {{ apache_http_site }}"
 - name: disable site (https)
   become: yes
-  command: a2dissite nas-ssl
+  command: "a2dissite {{ apache_https_site }}"
 - name: enable site (http)
   become: yes
-  command: a2ensite nas
+  command: "a2ensite {{ apache_http_site }}"
 - name: enable site (https)
   become: yes
-  command: a2ensite nas-ssl
+  command: "a2ensite {{ apache_https_site }}"
 - name: disable default sites
   become: yes
   command: |
-    a2dissite 000-default.conf
-    a2dissite 000-default-le-ssl.conf
+    a2dissite 000-default.conf; true
+    a2dissite 000-default-le-ssl.conf; true
 - name: copy .htpasswd
   become: yes
   copy:
-    src: files/.htpasswd
+    src: files/apache/.htpasswd
     dest: /etc/apache2/.htpasswd
     owner: root
     group: root
