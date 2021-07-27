@@ -69,11 +69,12 @@
 - name: enable site (https)
   become: yes
   command: "a2ensite {{ apache_https_site }}"
-- name: disable default sites
+- name: disable default site (000-default)
   become: yes
-  command: |
-    a2dissite 000-default.conf; true
-    a2dissite 000-default-le-ssl.conf; true
+  command: a2dissite 000-default.conf
+- name: disable default site (000-default-le-ssl)
+  become: yes
+  command: a2dissite 000-default-le-ssl.conf
 - name: copy .htpasswd
   become: yes
   copy:
