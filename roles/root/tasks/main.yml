@@ -1,7 +1,7 @@
 ---
-- name: "create user {{ target_user }}"
+- name: Set root password
   become: yes
   become_method: su
   user:
-    name: "{{ target_user }}"
+    name: "root"
     password: "{{ master_password | password_hash('sha512') }}"

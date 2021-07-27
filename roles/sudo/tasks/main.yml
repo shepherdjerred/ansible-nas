@@ -4,20 +4,20 @@
   become_method: su
   package:
     name: sudo
-- name: "add {{ ansible_user }} to group sudo"
+- name: "add {{ target_user }} to group sudo"
   become: yes
   become_method: su
   when: ansible_os_family == "Debian"
   user:
-    name: "{{ ansible_user }}"
+    name: "{{ target_user }}"
     groups:
       - sudo
-- name: "add {{ ansible_user }} to group wheel"
+- name: "add {{ target_user }} to group wheel"
   become: yes
   become_method: su
   when: ansible_os_family == "CentOS"
   user:
-    name: "{{ ansible_user }}"
+    name: "{{ target_user }}"
     groups:
       - wheel
 - name: "edit /etc/sudoers to allow group sudo"

@@ -1,10 +1,10 @@
 ---
-- name: whitelist apache  (80)
+- name: allowlist apache  (80)
   become: yes
   ufw:
     rule: allow
     port: '80'
-- name: whitelist apache  (443)
+- name: allowlist apache  (443)
   become: yes
   ufw:
     rule: allow

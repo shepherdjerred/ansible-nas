@@ -14,10 +14,10 @@
     dest: "/etc/docker/daemon.json"
     owner: root
     group: root
-- name: "add {{ ansible_user }} to docker group"
+- name: "add {{ target_user }} to docker group"
   become: yes
   user:
-    name: "{{ ansible_user }}"
+    name: "{{ target_user }}"
     groups:
       - docker
 - name: enable docker service

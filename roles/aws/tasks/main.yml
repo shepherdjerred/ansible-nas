@@ -1,7 +1,7 @@
 - name: copy aws credentials
   copy:
     src: files/credentials
-    dest: "/home/{{ ansible_user }}/.aws/credentials"
-    owner: "{{ ansible_user }}"
-    group: "{{ ansible_user }}"
+    dest: "/home/{{ target_user }}/.aws/credentials"
+    owner: "{{ target_user }}"
+    group: "{{ target_user }}"
     mode: "600"

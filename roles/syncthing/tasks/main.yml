@@ -22,11 +22,11 @@
   become: yes
   copy:
     src: /tmp/git/syncthing/etc/linux-systemd/system/syncthing@.service
-    dest: "/etc/systemd/system/syncthing@{{ ansible_user }}.service"
+    dest: "/etc/systemd/system/syncthing@{{ target_user }}.service"
     remote_src: yes
 - name: enable syncthing service
   become: yes
   systemd:
     enabled: yes
     state: restarted
-    name: "syncthing@{{ ansible_user }}.service"
+    name: "syncthing@{{ target_user }}.service"

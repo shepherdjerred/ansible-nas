@@ -2,7 +2,7 @@
 - name: clone systemd-factorio-docker repository
   git:
     repo: https://github.com/shepherdjerred/systemd-factorio-docker
-    dest: "/home/{{ ansible_user }}/git/systemd-factorio-docker"
+    dest: "/home/{{ target_user }}/git/systemd-factorio-docker"
     update: yes
 - name: create data directory
   file:
@@ -13,7 +13,7 @@
 - name: copy systemd service file
   become: yes
   copy:
-    src: "/home/{{ ansible_user }}/git/systemd-factorio-docker/docker.factorio.service"
+    src: "/home/{{ target_user }}/git/systemd-factorio-docker/docker.factorio.service"
     remote_src: yes
     dest: "/etc/systemd/system"
     owner: root

@@ -6,4 +6,3 @@
 - src: jnv.unattended-upgrades
 - src: https://www.github.com/mrlesmithjr/ansible-netdata
 - src: https://github.com/Oefenweb/ansible-fail2ban
-- src: elliotweiser.osx-command-line-tools

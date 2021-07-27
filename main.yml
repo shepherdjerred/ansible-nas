@@ -8,9 +8,6 @@
 - hosts: servers
   roles:
     - server
-- hosts: ec2
-  roles:
-    - ec2
 - hosts: amongus
   roles:
     - amongus
@@ -23,3 +20,6 @@
 - hosts: nas
   roles:
     - nas
+- hosts: hades
+  roles:
+    - hades

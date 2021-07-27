@@ -3,11 +3,11 @@
   git:
     update: yes
     repo: https://github.com/shepherdjerred-minecraft/overviewer-docker
-    dest: "/home/{{ ansible_user }}/git/overviewer-docker"
+    dest: "/home/{{ target_user }}/git/overviewer-docker"
 - name: copy systemd service file
   become: yes
   copy:
-    src: "/home/{{ ansible_user }}/git/overviewer-docker/docker.overviewer.service"
+    src: "/home/{{ target_user }}/git/overviewer-docker/docker.overviewer.service"
     remote_src: yes
     dest: "/etc/systemd/system"
     owner: root

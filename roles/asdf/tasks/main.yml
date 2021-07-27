@@ -42,43 +42,43 @@
     cmd: asdf plugin add java
     creates: ~/.asdf/plugins/java
   environment:
-    PATH: "{{ ansible_env.PATH }}:/home/{{ ansible_user }}/.asdf/bin/"
+    PATH: "{{ ansible_env.PATH }}:/home/{{ target_user }}/.asdf/bin/"
 - name: install nodejs plugin
   shell:
     cmd: asdf plugin add nodejs
     creates: ~/.asdf/plugins/nodejs
   environment:
-    PATH: "{{ ansible_env.PATH }}:/home/{{ ansible_user }}/.asdf/bin/"
+    PATH: "{{ ansible_env.PATH }}:/home/{{ target_user }}/.asdf/bin/"
 - name: install python plugin
   shell:
     cmd: asdf plugin add python
     creates: ~/.asdf/plugins/python
   environment:
-    PATH: "{{ ansible_env.PATH }}:/home/{{ ansible_user }}/.asdf/bin/"
+    PATH: "{{ ansible_env.PATH }}:/home/{{ target_user }}/.asdf/bin/"
 - name: install ruby plugin
   shell:
     cmd: asdf plugin add ruby
     creates: ~/.asdf/plugins/ruby
   environment:
-    PATH: "{{ ansible_env.PATH }}:/home/{{ ansible_user }}/.asdf/bin/"
+    PATH: "{{ ansible_env.PATH }}:/home/{{ target_user }}/.asdf/bin/"
 - name: install rust plugin
   shell:
     cmd: asdf plugin add rust
     creates: ~/.asdf/plugins/rust
   environment:
-    PATH: "{{ ansible_env.PATH }}:/home/{{ ansible_user }}/.asdf/bin/"
+    PATH: "{{ ansible_env.PATH }}:/home/{{ target_user }}/.asdf/bin/"
 - name: install release team keys for node js
   shell: bash -c '~/.asdf/plugins/nodejs/bin/import-release-team-keyring'
 - name: install previous release team keys for nodejs
   shell: bash -c '~/.asdf/plugins/nodejs/bin/import-previous-release-team-keyring'
-- name: install asdf tools
+- name: install asdf tools (this will take a while)
   shell:
     cmd: asdf install
     chdir: "~"
   environment:
-    PATH: "{{ ansible_env.PATH }}:/home/{{ ansible_user }}/.asdf/bin/"
+    PATH: "{{ ansible_env.PATH }}:/home/{{ target_user }}/.asdf/bin/"
 - name: reshim asdf
   shell:
     cmd: asdf reshim
   environment:
-    PATH: "{{ ansible_env.PATH }}:/home/{{ ansible_user }}/.asdf/bin/"
+    PATH: "{{ ansible_env.PATH }}:/home/{{ target_user }}/.asdf/bin/"

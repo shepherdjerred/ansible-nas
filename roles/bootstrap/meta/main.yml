@@ -1,0 +1,4 @@
+dependencies:
+  - root
+  - user
+  - sudo

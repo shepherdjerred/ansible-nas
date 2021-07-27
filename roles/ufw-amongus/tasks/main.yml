@@ -1,5 +1,5 @@
 ---
-- name: whitelist amongus (22023)
+- name: allowlist amongus (22023)
   become: yes
   ufw:
     rule: allow

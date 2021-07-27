@@ -3,7 +3,7 @@
   git:
     update: yes
     repo: https://github.com/shepherdjerred-minecraft/spigot-docker
-    dest: "/home/{{ ansible_user }}/git/spigot-docker"
+    dest: "/home/{{ target_user }}/git/spigot-docker"
 - name: create data directory
   file:
     path: /server/data
@@ -13,7 +13,7 @@
 - name: copy systemd service file
   become: yes
   copy:
-    src: "/home/{{ ansible_user }}/git/spigot-docker/docker.spigot.service"
+    src: "/home/{{ target_user }}/git/spigot-docker/docker.spigot.service"
     remote_src: yes
     dest: "/etc/systemd/system"
     owner: root

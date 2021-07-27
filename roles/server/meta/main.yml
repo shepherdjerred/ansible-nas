@@ -1,5 +1,6 @@
 dependencies:
   - common
+  - ufw
   - role: ansible-fail2ban
     become: yes
     fail2ban_banaction: ufw

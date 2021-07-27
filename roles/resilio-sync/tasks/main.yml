@@ -23,12 +23,12 @@
     state: restarted
     enabled: yes
 # https://help.resilio.com/hc/en-us/articles/204754759-What-ports-and-protocols-are-used-by-Sync-
-- name: whitelist resilio sync listening port (52085)
+- name: allowlist resilio sync listening port (52085)
   become: yes
   ufw:
     rule: allow
     port: '52085'
-- name: whitelist resilio sync LAN discovery (multicast) (3838)
+- name: allowlist resilio sync LAN discovery (multicast) (3838)
   become: yes
   ufw:
     rule: allow

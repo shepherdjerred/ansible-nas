@@ -1,11 +1,11 @@
 ---
-- name: whitelist factorio (34197)
+- name: allowlist factorio (34197)
   become: yes
   ufw:
     rule: allow
     proto: udp
     port: '34197'
-- name: whitelist factorio (27015)
+- name: allowlist factorio (27015)
   become: yes
   ufw:
     rule: allow

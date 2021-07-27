@@ -1,12 +1,12 @@
 dependencies:
+  - bootstrap
   - ssh
-  - sudo
   - role: jnv.unattended-upgrades
     when: ansible_os_family == "Debian"
     become: yes
     unattended_automatic_reboot: true
     unattended_remove_unused_dependencies: true
-    unattended_mail: "{{ ansible_user }}"
+    unattended_mail: "{{ target_user }}"
     unattended_origins_patterns:
       - origin=Debian,codename=${distro_codename}
       - label=Debian-Security
@@ -15,7 +15,7 @@ dependencies:
   - dotfiles
   - autojump
   - antibody
-  - asdf
   - gpg
+  - asdf
   - aws
   - git

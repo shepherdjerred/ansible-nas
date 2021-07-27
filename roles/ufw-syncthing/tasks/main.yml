@@ -1,5 +1,5 @@
 ---
-- name: whitelist syncthing
+- name: allowlist syncthing
   become: yes
   ufw:
     rule: allow

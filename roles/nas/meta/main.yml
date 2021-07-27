@@ -10,7 +10,7 @@ dependencies:
     become: yes
     unattended_automatic_reboot: true
     unattended_remove_unused_dependencies: true
-    unattended_mail: "{{ ansible_user }}"
+    unattended_mail: "{{ target_user }}"
     unattended_origins_patterns:
       - origin=Debian,codename=${distro_codename}
       - label=Debian-Security

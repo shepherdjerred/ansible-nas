@@ -52,7 +52,7 @@
   become: yes
   apt:
     name: plexmediaserver
-- name: whitelist plex (32400)
+- name: allowlist plex (32400)
   become: yes
   ufw:
     rule: allow

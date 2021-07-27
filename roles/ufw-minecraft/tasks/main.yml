@@ -1,5 +1,5 @@
 ---
-- name: whitelist minecraft (25565)
+- name: allowlist minecraft (25565)
   become: yes
   ufw:
     rule: allow

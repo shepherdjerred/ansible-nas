@@ -2,4 +2,4 @@
 - name: copy .gitcredentials
   copy:
     src: files/.gitcredentials
-    dest: "/home/{{ ansible_user }}/"
+    dest: "/home/{{ target_user }}/"
