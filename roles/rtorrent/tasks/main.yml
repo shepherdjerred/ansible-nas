@@ -1,0 +1,60 @@
+- name: install rtorrent
+  become: yes
+  package:
+    name: rtorrent
+- name: create rtorrent user
+  become: yes
+  user:
+    name: rtorrent
+    group: rtorrent
+- name: copy .rtorrent.rc
+  become: yes
+  copy:
+    src: files/rtorrent/.rtorrent.rc
+    dest: "/home/rtorrent/.rtorrent.rc"
+    owner: "rtorrent"
+    group: "rtorrent"
+- name: copy systemd config
+  become: yes
+  copy:
+    src: "files/rtorrent/rtorrent.service"
+    dest: "/etc/systemd/system"
+    owner: root
+    group: root
+- name: enable rtorrent.service
+  become: yes
+  systemd:
+    name: rtorrent.service
+    state: restarted
+    enabled: yes
+- name: create session directory
+  become: yes
+  file:
+    path: /home/rtorrent/session
+    state: directory
+    group: rtorrent
+    owner: rtorrent
+- name: create downloaded directory
+  become: yes
+  file:
+    path: /home/rtorrent/downloaded
+    state: directory
+    group: rtorrent
+    owner: rtorrent
+- name: create downloading directory
+  become: yes
+  file:
+    path: /home/rtorrent/downloading
+    state: directory
+    group: rtorrent
+    owner: rtorrent
+- name: allowlist rtorrent listening port (49164)
+  become: yes
+  ufw:
+    rule: allow
+    port: "49164"
+- name: allowlist rtorrent dht port (6881)
+  become: yes
+  ufw:
+    rule: allow
+    port: "6881"

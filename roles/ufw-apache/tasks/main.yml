@@ -1,11 +1,6 @@
 ---
-- name: allowlist apache  (80)
+- name: allowlist apache
   become: yes
   ufw:
     rule: allow
-    port: '80'
-- name: allowlist apache  (443)
-  become: yes
-  ufw:
-    rule: allow
-    port: '443'
+    name: "WWW Full"

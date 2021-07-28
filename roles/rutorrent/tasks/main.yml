@@ -1,0 +1,41 @@
+---
+- name: install php and scgi
+  become: yes
+  package:
+    name:
+      - php
+      - libapache2-mod-php
+      - ffmpeg
+      - sox
+      - mediainfo
+      - unrar
+- name: clone rutorrent repo
+  become: yes
+  git:
+    repo: https://github.com/Novik/ruTorrent.git
+    update: yes
+    clone: true
+    force: yes
+    dest: "/var/www/html/rutorrent"
+- name: copy config.php
+  become: yes
+  copy:
+    src: files/rutorrent/config.php
+    dest: "/var/www/html/rutorrent/config/config.php"
+    owner: "rtorrent"
+    group: "rtorrent"
+- name: set owner for rutorrent files to www-data
+  become: yes
+  file:
+    owner: www-data
+    group: www-data
+    recurse: yes
+    state: directory
+    path: /var/www/html/rutorrent
+- name: add www-data to rtorrent group
+  become: yes
+  user:
+    append: yes
+    name: www-data
+    groups:
+      - "rtorrent"
