@@ -8,7 +8,6 @@
       - ffmpeg
       - sox
       - mediainfo
-      - unrar
 - name: clone rutorrent repo
   become: yes
   git:
@@ -21,7 +20,7 @@
   become: yes
   copy:
     src: files/rutorrent/config.php
-    dest: "/var/www/html/rutorrent/config/config.php"
+    dest: "/var/www/html/rutorrent/conf/config.php"
     owner: "rtorrent"
     group: "rtorrent"
 - name: set owner for rutorrent files to www-data
