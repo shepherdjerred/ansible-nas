@@ -31,14 +31,22 @@
   file:
     path: /home/rtorrent/session
     state: directory
-    mode: '761'
+    mode: '775'
     group: rtorrent
     owner: rtorrent
 - name: create downloaded directory
   become: yes
   file:
     path: /home/rtorrent/downloaded
-    mode: '761'
+    mode: '775'
+    state: directory
+    group: rtorrent
+    owner: rtorrent
+- name: create log directory
+  become: yes
+  file:
+    path: /home/rtorrent/log
+    mode: '775'
     state: directory
     group: rtorrent
     owner: rtorrent
@@ -47,7 +55,7 @@
   file:
     path: /home/rtorrent/downloading
     state: directory
-    mode: '761'
+    mode: '775'
     group: rtorrent
     owner: rtorrent
 - name: allowlist rtorrent listening port (49164)
