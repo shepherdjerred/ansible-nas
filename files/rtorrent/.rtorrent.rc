@@ -36,7 +36,7 @@ network.local_address.set = hades.shepherdjerred.com
 # The IP address the listening socket and outgoing connections is
 # bound to.
 #
-network.bind_address.set = hades.shepherdjerredc
+network.bind_address.set = hades.shepherdjerred.com
 
 # Port range to use for listening.
 #
