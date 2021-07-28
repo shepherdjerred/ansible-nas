@@ -30,13 +30,13 @@ directory.default.set = /home/rtorrent/downloading
 session.path.set = /home/rtorrent/session
 
 # The IP address reported to the tracker.
-#
+
 network.local_address.set = hades.shepherdjerred.com
 
 # The IP address the listening socket and outgoing connections is
 # bound to.
 #
-# network.bind_address.set = hades.shepherdjerred.com
+# network.bind_address.set = 127.0.0.1
 
 # Port range to use for listening.
 #
@@ -96,3 +96,21 @@ ratio.enable=
 ratio.min.set=100
 ratio.max.set=100
 ratio.upload.set=1M
+
+# Logging
+# https://plaza.quickbox.io/t/where-is-rtorrent-log-file/1865
+log.open_file = "rtorrent", /home/rtorrent/log/rtorrent.log
+log.open_file = "tracker", /home/rtorrent/log/tracker.log
+log.open_file = "storage", /home/rtorrent/log/storage.log
+
+log.add_output = "info", "rtorrent"
+log.add_output = "critical", "rtorrent"
+log.add_output = "error", "rtorrent"
+log.add_output = "warn", "rtorrent"
+log.add_output = "notice", "rtorrent"
+log.add_output = "debug", "rtorrent"
+
+log.add_output = "dht_debug", "tracker"
+log.add_output = "tracker_debug", "tracker"
+
+log.add_output = "storage_debug", "storage"
