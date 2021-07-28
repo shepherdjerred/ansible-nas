@@ -8,6 +8,7 @@
       - ffmpeg
       - sox
       - mediainfo
+      - unrar-free
 - name: clone rutorrent repo
   become: yes
   git:
