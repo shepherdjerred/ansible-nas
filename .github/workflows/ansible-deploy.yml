@@ -22,5 +22,4 @@ jobs:
           options: |
             --inventory production/inventory.yml
             -e@vars/vaulted_vars.yml
-            --verbose
             --limit ${{ matrix.host }}
