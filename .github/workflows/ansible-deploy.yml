@@ -1,0 +1,21 @@
+name: Ansible Deploy
+
+on: [push]
+
+jobs:
+  deploy:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run playbook
+        uses: dawidd6/action-ansible-playbook@v2
+        with:
+          playbook: main.yml
+          key: ${{secrets.SSH_PRIVATE_KEY}}
+          vault_password: ${{secrets.VAULT_PASSWORD}}
+          requirements: requirements.yml
+          options: |
+            --inventory production/inventory.yml
+            -e@vars/vaulted_vars.yml
+            --verbose
+            --limit servers
