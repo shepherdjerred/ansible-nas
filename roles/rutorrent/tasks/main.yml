@@ -38,3 +38,13 @@
     name: www-data
     groups:
       - "rtorrent"
+- name: install python3
+  become: yes
+  package:
+    name:
+      - python3-pip
+- name: install cloudscraper
+  become: yes
+  pip:
+    executable: pip3
+    name: cloudscraper

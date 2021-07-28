@@ -37,6 +37,7 @@
   become: yes
   file:
     path: /home/rtorrent/downloaded
+    mode: 764
     state: directory
     group: rtorrent
     owner: rtorrent
@@ -57,3 +58,10 @@
   ufw:
     rule: allow
     port: "6881"
+- name: add user "{{ target_user }}" to group rtorrent
+  become: yes
+  user:
+    append: yes
+    name: "{{ target_user }}"
+    groups:
+      - "rtorrent"

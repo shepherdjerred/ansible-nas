@@ -34,7 +34,7 @@
 	$topDirectory = '/';			// Upper available directory. Absolute path with trail slash.
 	$forbidUserSettings = false;
 
-	$scgi_port = 0;
+	$scgi_port = "0";
 	$scgi_host = "unix:///home/rtorrent/rpc.socket";
 
 	// For web->rtorrent link through unix domain socket
@@ -52,6 +52,7 @@
 		"gzip"	=> '',			// Something like /usr/bin/gzip. If empty, will be found in PATH.
 		"id"	=> '',			// Something like /usr/bin/id. If empty, will be found in PATH.
 		"stat"	=> '',			// Something like /usr/bin/stat. If empty, will be found in PATH.
+		"python" => '/usr/bin/python3'
 	);
 
 	$localhosts = array( 			// list of local interfaces
