@@ -56,3 +56,10 @@
     name: "rtorrent"
     groups:
       - "www-data"
+- name: add user www-data to group jerred
+  become: yes
+  user:
+    append: yes
+    name: "www-data"
+    groups:
+      - "{{ ansible_user }}"

@@ -9,6 +9,7 @@
   become_method: su
   when: ansible_os_family == "Debian"
   user:
+    append: yes
     name: "{{ target_user }}"
     groups:
       - sudo
@@ -18,6 +19,7 @@
   when: ansible_os_family == "CentOS"
   user:
     name: "{{ target_user }}"
+    append: yes
     groups:
       - wheel
 - name: "edit /etc/sudoers to allow group sudo"

@@ -16,7 +16,9 @@
   become: yes
   user:
     name: sonarr
-    group: jerred
+    groups:
+    - jerred
+    append: yes
 - name: copy systemd config
   become: yes
   copy:
