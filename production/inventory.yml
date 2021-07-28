@@ -46,7 +46,6 @@ all:
             apache_https_site_file: "files/hades/hades-ssl.conf"
             apache_http_site: "hades"
             apache_https_site: "hades-ssl"
-            ipv6: "2607:5300:60:989::"
         bastion:
           hosts:
             bastion.home.shepherdjerred.com

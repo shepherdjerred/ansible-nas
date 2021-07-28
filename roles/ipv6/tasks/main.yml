@@ -1,13 +1,28 @@
 # https://phyks.me/2014/11/getting-ipv6-to-work-with-a-kimsufi-server.html
-- name: add network device
+# https://docs.ovh.com/gb/en/dedicated/network-ipv6/
+- name: copy interfaces file
+  become: yes
+  copy:
+    src: files/hades/100-ipv6
+    dest: /etc/network/interfaces.d/100-ipv6
+    owner: root
+    group: root
+    mode: '644'
+- name: disable ipv6 autoconf
+  become: yes
+  lineinfile:
+    path: /etc/sysctl.conf
+    regexp: '^net.ipv6.conf.all.autoconf='
+    line: net.ipv6.conf.all.autoconf=0
+- name: disable ipv6 accept_ra
+  become: yes
+  lineinfile:
+    path: /etc/sysctl.conf
+    regexp: '^net.ipv6.conf.all.accept_ra='
+    line: net.ipv6.conf.all.accept_ra=0
+- name: restart eno1 network interface
   become: yes
   shell:
-    cmd: "ip -6 addr add {{ ipv6 }}/64 dev eno1"
-- name: add route to reach gateway
-  become: yes
-  shell:
-    cmd: "ip -6 r a 2001:41d0:1:44FF:FF:FF:FF:FF dev eno1"
-- name: add default route
-  become: yes
-  shell:
-    cmd: "ip -6 r a default via 2001:41d0:1:44FF:FF:FF:FF:FF"
+    cmd: "ifdown eno1 && ifup eno1"
+- name: "Reset connection"
+  meta: reset_connection
