@@ -49,3 +49,10 @@
   pip:
     executable: pip3
     name: cloudscraper
+- name: add user rtorrent to group www-data
+  become: yes
+  user:
+    append: yes
+    name: "rtorrent"
+    groups:
+      - "www-data"
