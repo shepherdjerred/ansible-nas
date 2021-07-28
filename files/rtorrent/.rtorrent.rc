@@ -36,7 +36,7 @@ network.local_address.set = hades.shepherdjerred.com
 # The IP address the listening socket and outgoing connections is
 # bound to.
 #
-network.bind_address.set = hades.shepherdjerred.com
+# network.bind_address.set = hades.shepherdjerred.com
 
 # Port range to use for listening.
 #
@@ -96,10 +96,3 @@ ratio.enable=
 ratio.min.set=100
 ratio.max.set=100
 ratio.upload.set=1M
-method.set = group.seeding.ratio.command, "d.close= ; d.erase="
-
-# Adding public DHT servers for easy bootstrapping
-schedule2 = dht_node_1, 5, 0, "dht.add_node=router.utorrent.com:6881"
-schedule2 = dht_node_2, 5, 0, "dht.add_node=dht.transmissionbt.com:6881"
-schedule2 = dht_node_3, 5, 0, "dht.add_node=router.bitcomet.com:6881"
-schedule2 = dht_node_4, 5, 0, "dht.add_node=dht.aelitis.com:6881"
