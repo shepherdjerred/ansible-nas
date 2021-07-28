@@ -1,6 +1,4 @@
 dependencies:
-  - bootstrap
-  - ssh
   - role: jnv.unattended-upgrades
     when: ansible_os_family == "Debian"
     become: yes

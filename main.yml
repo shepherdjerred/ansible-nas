@@ -5,9 +5,10 @@
 - hosts: wsl
   roles:
     - wsl
-#- hosts: servers
-#  roles:
-#    - server
+- hosts: servers
+  roles:
+    - bootstrap
+    - server
 - hosts: amongus
   roles:
     - amongus

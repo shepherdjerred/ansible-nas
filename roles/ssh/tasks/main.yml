@@ -1,5 +1,6 @@
 ---
 - name: copy ssh private key
+  become: yes
   copy:
     src: files/ssh/id_rsa
     dest: "/home/{{ target_user }}/.ssh/id_rsa"

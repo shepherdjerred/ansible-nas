@@ -6,7 +6,6 @@
   become: yes
   user:
     name: rtorrent
-    group: rtorrent
 - name: copy .rtorrent.rc
   become: yes
   copy:
