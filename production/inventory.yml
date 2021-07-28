@@ -26,19 +26,6 @@ all:
           TELEGRAM_BOT_TOKEN: "{{ netdata_telegram_bot_api_key }}"
           DEFAULT_RECIPIENT_TELEGRAM: 221374195
       children:
-        ec2:
-          vars:
-            bootstrap_user: ec2-user
-          children:
-            amongus:
-              hosts:
-                amongus.shepherdjerred.com
-            minecraft:
-              hosts:
-                minecraft.shepherdjerred.com
-            factorio:
-              hosts:
-                factorio.shepherdjerred.com
         nas:
           hosts:
             nas.home.shepherdjerred.com
