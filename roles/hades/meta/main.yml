@@ -1,4 +1,5 @@
 dependencies:
+  - ipv6
   - syncthing
   - ufw-syncthing
   - resilio-sync

@@ -1,0 +1,13 @@
+# https://phyks.me/2014/11/getting-ipv6-to-work-with-a-kimsufi-server.html
+- name: add network device
+  become: yes
+  shell:
+    cmd: "ip -6 addr add {{ ipv6 }}/64 dev eno1"
+- name: add route to reach gateway
+  become: yes
+  shell:
+    cmd: "ip -6 r a 2001:41d0:1:44FF:FF:FF:FF:FF dev eno1"
+- name: add default route
+  become: yes
+  shell:
+    cmd: "ip -6 r a default via 2001:41d0:1:44FF:FF:FF:FF:FF"
