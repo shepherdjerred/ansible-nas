@@ -40,12 +40,12 @@
 - name: fix ssh folder permissions
   file:
     path: "~/.ssh"
-    mode: 0700
+    mode: '700'
     owner: "{{ target_user }}"
     group: "{{ target_user }}"
 - name: fix authorized keys permissions
   file:
     path: "~/.ssh/authorized_keys"
-    mode: 0600
+    mode: '600'
     owner: "{{ target_user }}"
     group: "{{ target_user }}"

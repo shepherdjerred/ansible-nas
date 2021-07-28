@@ -47,7 +47,7 @@
     state: link
     owner: plex
     group: plex
-    mode: 0755
+    mode: '755'
 - name: install plexmediaserver
   become: yes
   apt:
