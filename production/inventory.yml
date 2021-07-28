@@ -21,6 +21,7 @@ all:
             desktop.home.shepherdjerred.com
     servers:
       vars:
+        netdata_alarm_configure: true
         netdata_alarm_notify_configs:
           SEND_TELEGRAM: YES
           TELEGRAM_BOT_TOKEN: "{{ netdata_telegram_bot_api_key }}"

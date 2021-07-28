@@ -1,5 +1,5 @@
 ---
-- name: install php and scgi
+- name: install dependencies
   become: yes
   package:
     name:
@@ -31,7 +31,7 @@
     recurse: yes
     state: directory
     path: /var/www/html/rutorrent
-- name: add www-data to rtorrent group
+- name: add user www-data to rtorrent group
   become: yes
   user:
     append: yes

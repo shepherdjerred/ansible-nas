@@ -1,4 +1,0 @@
-dependencies:
-  - docker
-  - ufw-apache
-  - ufw-factorio

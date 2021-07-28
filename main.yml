@@ -9,15 +9,6 @@
   roles:
     - bootstrap
     - server
-- hosts: amongus
-  roles:
-    - amongus
-- hosts: factorio
-  roles:
-    - factorio
-- hosts: minecraft
-  roles:
-    - minecraft
 - hosts: nas
   roles:
     - nas
