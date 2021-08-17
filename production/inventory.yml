@@ -38,12 +38,6 @@ all:
             apache_https_site_file: "files/nas/nas-ssl.conf"
             apache_http_site: "nas"
             apache_https_site: "nas-ssl"
-          children:
-            nas-remote:
-              hosts:
-                nas.home.shepherdjerred.com
-              vars:
-                ansible_ssh_common_args: "-J jerred@home.shepherdjerred.com"
         hades:
           hosts:
             hades.shepherdjerred.com
@@ -54,10 +48,3 @@ all:
             apache_https_site_file: "files/hades/hades-ssl.conf"
             apache_http_site: "hades"
             apache_https_site: "hades-ssl"
-        bastion:
-          hosts:
-            bastion.home.shepherdjerred.com
-          children:
-            bastion-remote:
-              hosts:
-                home.shepherdjerred.com

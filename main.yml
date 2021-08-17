@@ -9,6 +9,12 @@
 - hosts: servers
   roles:
     - bootstrap
+    - role: ansible-role-tailscale
+      become: yes
+      vars:
+        legacy_apt_dependencies:
+          - python3-apt
+        tailscale_auth_key: "{{ tailscale_key }}"
     - ufw
     - common
     - role: ansible-fail2ban

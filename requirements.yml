@@ -9,5 +9,5 @@
   version: e769f17
 - src: https://github.com/adriagalin/ansible.motd
   version: b1b67b5
-- src: https://github.com/githubixx/ansible-role-wireguard
-  version: "7.12.0"
+- src: https://github.com/artis3n/ansible-role-tailscale
+  version: "v1.13.3"

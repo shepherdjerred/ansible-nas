@@ -8,12 +8,15 @@ jobs:
       matrix:
         host:
           - "hades"
-#          - "nas-remote"
-          - "bastion-remote"
+          - "nas"
     if: github.event_name == 'push' && github.ref == 'refs/heads/master'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Setup Tailscale
+        uses: tailscale/github-action@v1
+        with:
+          authkey: ${{ secrets.TAILSCALE_KEY }}
       - name: Run playbook
         uses: dawidd6/action-ansible-playbook@v2
         with:
