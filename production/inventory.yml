@@ -19,7 +19,7 @@ all:
       children:
         nas:
           hosts:
-            100.76.222.102
+            nas.home.shepherdjerred.com
           vars:
             domain: nas.home.shepherdjerred.com
             apache_http_site_file: "files/nas/nas.conf"
