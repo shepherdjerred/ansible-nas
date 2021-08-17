@@ -38,6 +38,12 @@ all:
             apache_https_site_file: "files/nas/nas-ssl.conf"
             apache_http_site: "nas"
             apache_https_site: "nas-ssl"
+          children:
+            nas-remote:
+              hosts:
+                nas.home.shepherdjerred.com
+              vars:
+                ansible_ssh_common_args: "-J jerred@home.shepherdjerred.com"
         hades:
           hosts:
             hades.shepherdjerred.com
