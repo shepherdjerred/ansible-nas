@@ -4,14 +4,16 @@ all:
     target_user: jerred
     bootstrap_user: jerred
     ansible_user: "{{ bootstrap_user }}"
+    ansible_ssh_pass: "{{ master_password }}"
     ansible_sudo_pass: "{{ master_password }}"
     ansible_become_pass: "{{ master_password }}"
+    certbot_email: shepherdjerred@gmail.com
   children:
     macs:
       children:
-        macbook-pro:
+        macbook:
           hosts:
-            macbook-pro.home.shepherdjered.com
+            127.0.0.1
           vars:
             hostname: macbook-pro.home.shepherdjerred.com
     wsl:
@@ -32,8 +34,8 @@ all:
             nas.home.shepherdjerred.com
           vars:
             domain: nas.home.shepherdjerred.com
-            apache_http_site_file: "files/hades/nas.conf"
-            apache_https_site_file: "files/hades/nas-ssl.conf"
+            apache_http_site_file: "files/nas/nas.conf"
+            apache_https_site_file: "files/nas/nas-ssl.conf"
             apache_http_site: "nas"
             apache_https_site: "nas-ssl"
         hades:

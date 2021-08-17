@@ -1,0 +1,5 @@
+---
+- name: install fish
+  become: yes
+  package:
+    name: fish

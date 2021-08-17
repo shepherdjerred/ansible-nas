@@ -1,6 +1,0 @@
----
-- name: allowlist syncthing
-  become: yes
-  ufw:
-    rule: allow
-    name: syncthing

@@ -1,4 +1,4 @@
-- name: copy aws credentials
+- name: "copy aws credentials for {{ target_user }}"
   copy:
     src: files/aws/credentials
     dest: "/home/{{ target_user }}/.aws/credentials"

@@ -1,7 +1,0 @@
----
-- name: install rust (and cargo)
-  shell:
-    cmd: curl https://sh.rustup.rs -sSf | sh -s -- -y
-  args:
-    creates: '/home/{{ target_user }}/.cargo/bin/cargo'
-

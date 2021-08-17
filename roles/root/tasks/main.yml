@@ -1,6 +1,7 @@
 ---
 - name: Set root password
   become: yes
+  become_method: su
   user:
     name: "root"
     password: "{{ master_password | password_hash('sha512') }}"

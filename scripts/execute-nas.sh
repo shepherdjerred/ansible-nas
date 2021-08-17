@@ -1,2 +1,2 @@
 #!/bin/bash
-./scripts/execute.sh --limit nas
+./scripts/execute.sh --limit nas "$@"

@@ -1,0 +1,7 @@
+---
+- name: restart site (http)
+  become: yes
+  command: "a2dissite {{ apache_http_site }}; a2ensite {{ apache_http_site }}"
+- name: restart site (https)
+  become: yes
+  command: "a2dissite {{ apache_https_site }}; a2ensite {{ apache_https_site }}"

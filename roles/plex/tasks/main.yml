@@ -25,20 +25,16 @@
     state: directory
     group: plex
     owner: plex
-#- name: set owner for plex files
-#  become: yes
-#  file:
-#    owner: plex
-#    group: plex
-#    recurse: yes
-#    state: directory
-#    path: /var/lib/plexmediaserver
-- name: enable plex service
+  register: folder_created
+- name: set owner for plex files
   become: yes
-  systemd:
-    enabled: yes
-    state: restarted
-    name: plexmediaserver
+  file:
+    owner: plex
+    group: plex
+    recurse: yes
+    state: directory
+    path: /var/lib/plexmediaserver
+  when: folder_created.changed
 - name: move library folder
   become: yes
   file:
@@ -52,8 +48,15 @@
   become: yes
   apt:
     name: plexmediaserver
-- name: allowlist plex (32400)
+- name: enable plex service
+  become: yes
+  systemd:
+    enabled: yes
+    state: restarted
+    name: plexmediaserver
+- name: open plex port (32400)
   become: yes
   ufw:
     rule: allow
     port: '32400'
+

@@ -5,7 +5,7 @@
     update_cache: yes
     name:
       - mosh
-- name: allowlist mosh (60000-61000)
+- name: open mosh ports
   become: yes
   ufw:
     rule: allow

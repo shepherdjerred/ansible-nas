@@ -1,0 +1,10 @@
+---
+- name: copy http site
+  become: yes
+  copy:
+    src: "{{ apache_http_site_file }}"
+    dest: "/etc/apache2/sites-available"
+    owner: root
+    group: root
+    mode: "644"
+  notify: restart site (http)

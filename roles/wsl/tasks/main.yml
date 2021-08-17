@@ -1,9 +1,1 @@
 ---
-- name: tap aws repo
-  shell: "/home/linuxbrew/.linuxbrew/bin/brew tap aws/tap"
-- name: install sam cli
-  shell: "/home/linuxbrew/.linuxbrew/bin/brew install aws-sam-cli"
-- name: install ansible
-  shell: "/home/linuxbrew/.linuxbrew/bin/brew install ansible"
-- name: install ansible-lint
-  shell: "/home/linuxbrew/.linuxbrew/bin/brew install ansible-lint"

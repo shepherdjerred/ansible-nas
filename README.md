@@ -5,8 +5,9 @@
 
 A giant Ansible playbook for managing my servers and personal devices.
 
-## Setup
-`ansible-galaxy install -r requirements.yml`
+## Requirements
+* sshpass
+* passlib (pip)
 
 ## Caveats
 * UFW could potentially leave firewall in bad state. Might want to disable firewall before running UFW commands

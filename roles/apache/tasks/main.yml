@@ -1,80 +1,35 @@
 ---
-- name: install certbot packages
-  become: yes
-  package:
-    name:
-      - certbot
-      - python-certbot-apache
-      - python3-certbot-dns-route53
-- name: create .aws directory for root
-  become: yes
-  file:
-    path: /root/.aws
-    state: directory
-- name: copy aws credentials
-  become: yes
-  copy:
-    src: files/aws/route53-credentials
-    dest: /root/.aws/credentials
-    owner: root
-    group: root
-    mode: '600'
-- name: run certbot
-  become: yes
-  command: certbot -n --agree-tos -m shepherdjerred@gmail.com --installer apache --dns-route53 -d {{ domain }}
-  register: certbot_output
 - name: install apache
   become: yes
   package:
     name: apache2
-- name: enable apache ssl module
+- name: enable apache modules
   become: yes
   apache2_module:
-    name: ssl
-- name: enable apache rewrite module
-  become: yes
-  apache2_module:
-    name: rewrite
-- name: enable apache proxy module
-  become: yes
-  apache2_module:
-    name: proxy
-- name: enable apache proxy_http module
-  become: yes
-  apache2_module:
-    name: proxy_http
-- name: copy http site
-  become: yes
-  copy:
-    src: "{{ apache_http_site_file }}"
-    dest: "/etc/apache2/sites-available"
-    owner: root
-    group: root
-- name: copy https site
-  become: yes
-  copy:
-    src: "{{ apache_https_site_file }}"
-    dest: "/etc/apache2/sites-available"
-    owner: root
-    group: root
-- name: disable site (http)
-  become: yes
-  command: "a2dissite {{ apache_http_site }}"
-- name: disable site (https)
-  become: yes
-  command: "a2dissite {{ apache_https_site }}"
-- name: enable site (http)
-  become: yes
-  command: "a2ensite {{ apache_http_site }}"
-- name: enable site (https)
-  become: yes
-  command: "a2ensite {{ apache_https_site }}"
+    name: "{{ item }}"
+  loop:
+    - ssl
+    - rewrite
+    - proxy
+    - proxy_http
+- include_tasks: http.yml
+- include_tasks: https.yml
+- name: check if site 000-default is enabled
+  stat:
+    path: /etc/apach2/sites-enabled/000-default.conf
+  register: default
+- name: check if site 000-default-le-ssl is enabled
+  stat:
+    path: /etc/apach2/sites-enabled/000-default.conf
+  register: defaultssl
 - name: disable default site (000-default)
   become: yes
   command: a2dissite 000-default.conf
+  when: default.stat.exists
 - name: disable default site (000-default-le-ssl)
   become: yes
   command: a2dissite 000-default-le-ssl.conf
+  when: defaultssl.stat.exists
 - name: copy .htpasswd
   become: yes
   copy:
@@ -83,13 +38,14 @@
     owner: root
     group: root
     mode: '755'
-- name: reload apache2
-  become: yes
-  command: systemctl reload apache2
 - name: restart apache2 service
   become: yes
   systemd:
     name: apache2
     enabled: yes
     state: restarted
-
+- name: open ports for apache
+  become: yes
+  ufw:
+    rule: allow
+    name: "WWW Full"

@@ -1,6 +1,0 @@
----
-- name: allowlist apache
-  become: yes
-  ufw:
-    rule: allow
-    name: "WWW Full"

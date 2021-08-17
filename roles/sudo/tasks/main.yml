@@ -30,3 +30,4 @@
     path: /etc/sudoers
     regexp: \%sudo[ ]*ALL=\(ALL:ALL\) ALL
     replace: "sudo    ALL=(ALL:ALL) ALL"
+- meta: reset_connection

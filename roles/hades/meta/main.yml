@@ -1,9 +1,0 @@
-dependencies:
-  - ipv6
-  - syncthing
-  - ufw-syncthing
-  - resilio-sync
-  - apache
-  - ufw-apache
-  - rtorrent
-  - rutorrent

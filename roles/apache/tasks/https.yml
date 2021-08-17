@@ -1,0 +1,10 @@
+---
+- name: copy https site
+  become: yes
+  copy:
+    src: "{{ apache_https_site_file }}"
+    dest: "/etc/apache2/sites-available"
+    owner: root
+    group: root
+    mode: "644"
+  notify: restart site (https)

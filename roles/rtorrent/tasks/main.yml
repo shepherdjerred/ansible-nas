@@ -58,16 +58,6 @@
     mode: '775'
     group: rtorrent
     owner: rtorrent
-- name: allowlist rtorrent listening port (49164)
-  become: yes
-  ufw:
-    rule: allow
-    port: "49164"
-- name: allowlist rtorrent dht port (6881)
-  become: yes
-  ufw:
-    rule: allow
-    port: "6881"
 - name: add user "{{ target_user }}" to group rtorrent
   become: yes
   user:
@@ -75,3 +65,13 @@
     name: "{{ target_user }}"
     groups:
       - "rtorrent"
+- name: open port 49164 for rtorrent
+  become: yes
+  ufw:
+    rule: allow
+    port: "49164"
+- name: open port 6881 for rtorrent
+  become: yes
+  ufw:
+    rule: allow
+    port: "6881"
