@@ -14,7 +14,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Setup Tailscale
-        uses: shepherdjerred/github-action@main
+        uses: tailscale/github-action@main
         with:
           authkey: ${{ secrets.TAILSCALE_KEY }}
       - name: Run playbook
