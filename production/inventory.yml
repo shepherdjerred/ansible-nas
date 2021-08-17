@@ -57,5 +57,7 @@ all:
         bastion:
           hosts:
             bastion.home.shepherdjerred.com
-          vars:
-            bootstrap_user: raspian
+          children:
+            bastion-remote:
+              hosts:
+                home.shepherdjerred.com

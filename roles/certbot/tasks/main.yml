@@ -20,7 +20,7 @@
 - name: trust plugins for certbot package
   become: yes
   shell: "snap set certbot trust-plugin-with-root=ok"
-- name: instal plugins
+- name: install plugins
   become: yes
   community.general.snap:
     classic: yes
