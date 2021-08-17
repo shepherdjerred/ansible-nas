@@ -8,14 +8,11 @@ jobs:
       matrix:
         host:
           - "hades"
-          - "nas-remote"
+#          - "nas-remote"
     if: github.event_name == 'push' && github.ref == 'refs/heads/master'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: webfactory/ssh-agent@v0.5.3
-        with:
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
       - name: Run playbook
         uses: dawidd6/action-ansible-playbook@v2
         with:
