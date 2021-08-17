@@ -17,6 +17,8 @@ jobs:
         uses: tailscale/github-action@main
         with:
           authkey: ${{ secrets.TAILSCALE_KEY }}
+      - name: Ping server
+        run: "ping ${{ matrix.host }}.shepherdjerred.com"
       - name: Run playbook
         uses: dawidd6/action-ansible-playbook@v2
         with:
