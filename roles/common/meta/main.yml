@@ -1,5 +1,5 @@
 dependencies:
-  - role: jnv.unattended-upgrades
+  - role: ansible-role-unattended-upgrades
     when: ansible_os_family == "Debian"
     become: yes
     unattended_automatic_reboot: true
