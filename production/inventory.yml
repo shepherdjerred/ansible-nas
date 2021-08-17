@@ -9,18 +9,6 @@ all:
     ansible_become_pass: "{{ master_password }}"
     certbot_email: shepherdjerred@gmail.com
   children:
-    macs:
-      children:
-        macbook:
-          hosts:
-            127.0.0.1
-          vars:
-            hostname: macbook-pro.home.shepherdjerred.com
-    wsl:
-      children:
-        jerred-desktop:
-          hosts:
-            desktop.home.shepherdjerred.com
     servers:
       vars:
         netdata_alarm_configure: true
@@ -31,7 +19,7 @@ all:
       children:
         nas:
           hosts:
-            nas.home.shepherdjerred.com
+            100.76.222.102
           vars:
             domain: nas.home.shepherdjerred.com
             apache_http_site_file: "files/nas/nas.conf"
