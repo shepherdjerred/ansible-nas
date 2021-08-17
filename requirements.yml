@@ -10,4 +10,4 @@
 - src: https://github.com/adriagalin/ansible.motd
   version: b1b67b5
 - src: https://github.com/artis3n/ansible-role-tailscale
-  version: "v1.13.3"
+  version: "v1.13.0"
