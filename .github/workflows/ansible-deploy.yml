@@ -14,10 +14,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Setup Tailscale
-        uses: tailscale/github-action@v1
+        uses: shepherdjerred/github-action@main
         with:
           authkey: ${{ secrets.TAILSCALE_KEY }}
-          version: 1.7.359
       - name: Run playbook
         uses: dawidd6/action-ansible-playbook@v2
         with:
