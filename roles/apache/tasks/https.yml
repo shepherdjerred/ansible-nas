@@ -7,4 +7,4 @@
     owner: root
     group: root
     mode: "644"
-  notify: restart site (https)
+  notify: "restart site (https)"

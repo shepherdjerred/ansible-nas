@@ -16,11 +16,11 @@
 - include_tasks: https.yml
 - name: check if site 000-default is enabled
   stat:
-    path: /etc/apach2/sites-enabled/000-default.conf
+    path: /etc/apache2/sites-enabled/000-default.conf
   register: default
 - name: check if site 000-default-le-ssl is enabled
   stat:
-    path: /etc/apach2/sites-enabled/000-default.conf
+    path: /etc/apache2/sites-enabled/000-default.conf
   register: defaultssl
 - name: disable default site (000-default)
   become: yes
@@ -49,3 +49,5 @@
   ufw:
     rule: allow
     name: "WWW Full"
+- name: flush handlers
+  meta: flush_handlers
