@@ -34,7 +34,7 @@
 - name: copy aws credentials
   become: yes
   copy:
-    src: files/aws/route53-credentials
+    src: route53-credentials
     dest: /root/.aws/credentials
     owner: root
     group: root

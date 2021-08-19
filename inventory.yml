@@ -1,0 +1,10 @@
+all:
+  children:
+    servers:
+      children:
+        nas:
+          hosts:
+            nas.home.shepherdjerred.com
+        hades:
+          hosts:
+            hades.shepherdjerred.com

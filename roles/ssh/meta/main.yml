@@ -2,4 +2,4 @@ dependencies:
   - role: ansible-secure-ssh
     become: yes
     ssh_user: "{{ target_user }}"
-    ssh_identity_key: files/ssh/id_rsa.pub
+    ssh_identity_key: id_rsa.pub

@@ -20,7 +20,7 @@
 - name: copy config.php
   become: yes
   copy:
-    src: files/rutorrent/config.php
+    src: config.php
     dest: "/var/www/html/rutorrent/conf/config.php"
     owner: "rtorrent"
     group: "rtorrent"

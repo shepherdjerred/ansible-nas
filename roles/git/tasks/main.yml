@@ -1,5 +1,5 @@
 ---
 - name: copy .gitcredentials
   copy:
-    src: files/.gitcredentials
+    src: .gitcredentials
     dest: "/home/{{ target_user }}/"

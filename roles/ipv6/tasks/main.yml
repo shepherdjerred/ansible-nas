@@ -3,7 +3,7 @@
 - name: copy interfaces file
   become: yes
   copy:
-    src: files/hades/100-ipv6
+    src: 100-ipv6
     dest: /etc/network/interfaces.d/100-ipv6
     owner: root
     group: root

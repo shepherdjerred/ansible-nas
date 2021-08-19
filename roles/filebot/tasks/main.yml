@@ -30,7 +30,7 @@
 - name: copy filebot license
   become: yes
   copy:
-    src: files/filebot/FILEBOT_LICENSE
+    src: FILEBOT_LICENSE
     dest: "/tmp/FILEBOT_LICENSE"
     owner: "{{ target_user }}"
     group: "{{ target_user }}"

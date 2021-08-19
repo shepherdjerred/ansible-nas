@@ -2,5 +2,5 @@
 - name: copy ssh public key
   become: yes
   copy:
-    src: "files/ssh/id_rsa.pub"
+    src: "id_rsa.pub"
     dest: "/Users/{{ ansible_user}}/.ssh/"

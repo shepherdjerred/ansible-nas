@@ -9,14 +9,14 @@
 - name: copy .rtorrent.rc
   become: yes
   copy:
-    src: files/rtorrent/.rtorrent.rc
+    src: .rtorrent.rc
     dest: "/home/rtorrent/.rtorrent.rc"
     owner: "rtorrent"
     group: "rtorrent"
 - name: copy systemd config
   become: yes
   copy:
-    src: "files/rtorrent/rtorrent.service"
+    src: "rtorrent.service"
     dest: "/etc/systemd/system"
     owner: root
     group: root

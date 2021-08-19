@@ -1,0 +1,5 @@
+domain: nas.home.shepherdjerred.com
+apache_http_site_file: "nas.conf"
+apache_https_site_file: "nas-ssl.conf"
+apache_http_site: "nas"
+apache_https_site: "nas-ssl"

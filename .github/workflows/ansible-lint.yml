@@ -10,5 +10,5 @@ jobs:
     - name: Lint Ansible Playbook
       uses: ansible/ansible-lint-action@master
       with:
-        targets: "main.yml"
+        targets: "vars.yml"
       continue-on-error: true

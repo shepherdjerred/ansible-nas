@@ -1,0 +1,8 @@
+- hosts: hades
+  roles:
+    - ipv6
+    - syncthing
+    - apache
+    - certbot
+    - rtorrent
+    - rutorrent

@@ -7,11 +7,7 @@ A giant Ansible playbook for managing my servers and personal devices.
 
 ## Requirements
 * sshpass
-* passlib (pip)
-
-## Caveats
-* UFW could potentially leave firewall in bad state. Might want to disable firewall before running UFW commands
-* Most of these tasks should be more configurable/robust, but since this is for personal use I don't care too much
+* passlib (installed via pip)
 
 ## Execution
 This playbook will bootstrap new hosts into the specified state. It should take minimal manual work. Since the playbook supports multiple different target hosts and configurations, the bootstrap process will look slightly different from host to host.
@@ -21,11 +17,5 @@ The playbook uses two variables to bootstrap new hosts -- `bootstrap_user` and `
 For Debian based hosts the application should take care of all work from setting up the root and target user to installing all the desired applications.
 
 ## Manual Steps
-### Resilio Sync
-* Edit config so that https is disabled, and Resilio listens on all addresses
-* Allow in UFW
-* Set up Resilio in web GUI
-* Re-enable https and listen only on 127.0.0.1
-* Deny in UFW
 ### Syncthing
 * Setup synced folders

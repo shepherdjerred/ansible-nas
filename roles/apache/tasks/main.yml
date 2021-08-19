@@ -33,7 +33,7 @@
 - name: copy .htpasswd
   become: yes
   copy:
-    src: files/apache/.htpasswd
+    src: .htpasswd
     dest: /etc/apache2/.htpasswd
     owner: root
     group: root

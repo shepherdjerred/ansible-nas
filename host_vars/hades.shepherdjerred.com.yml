@@ -1,0 +1,6 @@
+bootstrap_user: debian
+domain: hades.shepherdjerred.com
+apache_http_site_file: "hades.conf"
+apache_https_site_file: "hades-ssl.conf"
+apache_http_site: "hades"
+apache_https_site: "hades-ssl"

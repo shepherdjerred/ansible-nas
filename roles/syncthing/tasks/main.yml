@@ -14,6 +14,7 @@
     name:
       - syncthing
 - name: clone syncthing github repo
+  become: yes
   git:
     update: yes
     repo: https://github.com/syncthing/syncthing

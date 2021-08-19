@@ -14,7 +14,7 @@
   register: temp_gpg
 - name: copy gpg key to temp file
   copy:
-    src: "files/gpg/Jerred Shepherd (9E0A6A73) – Secret.asc"
+    src: "Jerred Shepherd (9E0A6A73) – Secret.asc"
     dest: "{{ temp_gpg.path }}"
 - name: import gpg key
   shell: "gpg --pinentry-mode=loopback --passphrase {{ gpg_passphrase }} --import {{ temp_gpg.path }}"
