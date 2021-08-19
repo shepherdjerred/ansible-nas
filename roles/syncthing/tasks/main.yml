@@ -27,7 +27,7 @@
 - name: copy syncthing systemd config
   become: yes
   copy:
-    src: {{ tempdir.path }}/syncthing/etc/linux-systemd/system/syncthing@.service
+    src: "{{ tempdir.path }}/syncthing/etc/linux-systemd/system/syncthing@.service"
     dest: "/etc/systemd/system/syncthing@{{ target_user }}.service"
     remote_src: yes
 - name: enable syncthing service
