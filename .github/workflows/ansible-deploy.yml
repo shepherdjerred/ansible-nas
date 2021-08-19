@@ -14,10 +14,11 @@ jobs:
           authkey: ${{ secrets.TAILSCALE_KEY }}
       - name: Run playbook
         uses: dawidd6/action-ansible-playbook@v2
+        env:
+          VAULT_PASSWORD: ${{secrets.VAULT_PASSWORD}}
         with:
           playbook: main.yml
           key: ${{secrets.SSH_PRIVATE_KEY}}
-          vault_password: ${{secrets.VAULT_PASSWORD}}
           requirements: requirements.yml
           options: |
             -e@group_vars/all/vault.yml
