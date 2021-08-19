@@ -27,16 +27,21 @@
       - filebot
     install_recommends: yes
   when: is_filebot_installed.rc != 0
+- name: create temporary file
+  tempfile:
+    state: file
+    suffix: filebot_license
+  register: tempfile
 - name: copy filebot license
   become: yes
   copy:
     src: FILEBOT_LICENSE
-    dest: "/tmp/FILEBOT_LICENSE"
+    dest: "{{ tempfile.path }}"
     owner: "{{ target_user }}"
     group: "{{ target_user }}"
     mode: '600'
 - name: setup filebot license (user)
-  shell: "filebot --license /tmp/FILEBOT_LICENSE"
+  shell: "filebot --license {{ tempfile.path }}"
 - name: setup filebot license (root)
   become: yes
-  shell: "filebot --license /tmp/FILEBOT_LICENSE"
+  shell: "filebot --license {{ tempfile.path }}"

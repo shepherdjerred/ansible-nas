@@ -13,12 +13,17 @@
     update_cache: yes
     name:
       - syncthing
+- name: create temp dir
+  tempfile:
+    state: directory
+    suffix: syncthing
+  register: tempdir
 - name: clone syncthing github repo
-  become: yes
   git:
     update: yes
     repo: https://github.com/syncthing/syncthing
-    dest: /tmp/git/syncthing
+    dest: "{{ tempdir.path }}"
+    depth: 1
 - name: copy syncthing systemd config
   become: yes
   copy:

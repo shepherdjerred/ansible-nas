@@ -1,2 +1,2 @@
 #!/bin/bash
-./scripts/execute.sh --limit hades
+./scripts/execute.sh --limit hades "$@"
