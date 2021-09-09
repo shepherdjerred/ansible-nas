@@ -1,0 +1,25 @@
+---
+- name: create home-assistant user
+  become: yes
+  user:
+    name: home-assistant
+- name: create config directory
+  become: yes
+  file:
+    path: /home/home-assistant/config
+    state: directory
+    group: home-assistant
+    owner: home-assistant
+- name: copy systemd config
+  become: yes
+  copy:
+    src: "home-assistant.docker.service"
+    dest: "/etc/systemd/system"
+    owner: home-assistant
+    group: home-assistant
+- name: enable home-assistant.docker.service
+  become: yes
+  systemd:
+    name: home-assistant.docker.service
+    state: restarted
+    enabled: yes

@@ -10,10 +10,9 @@ dependencies:
       - label=Debian-Security
   - apps
   - mosh
-  - oh-my-zsh
+  - fish
   - dotfiles
   - autojump
-  - antibody
   - gpg
   - asdf
   - aws

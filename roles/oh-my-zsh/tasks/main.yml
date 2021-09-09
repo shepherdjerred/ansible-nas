@@ -1,5 +1,0 @@
----
-- name: install oh-my-zsh
-  shell: sh -c -s "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh) -- --unattended"
-  args:
-    creates: .oh-my-zsh

@@ -1,4 +1,0 @@
----
-- name: install antibody
-  become: yes
-  shell: curl -sfL git.io/antibody | sh -s - -b /usr/local/bin

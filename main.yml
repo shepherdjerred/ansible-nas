@@ -1,4 +1,7 @@
 ---
+- hosts: servers
+  roles:
+    - bootstrap
 - import_playbook: servers.yml
 - import_playbook: nas.yml
 - import_playbook: hades.yml

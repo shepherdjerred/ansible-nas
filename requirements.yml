@@ -11,3 +11,5 @@
   version: b1b67b5
 - src: https://github.com/artis3n/ansible-role-tailscale
   version: "v1.13.0"
+- src: https://github.com/geerlingguy/ansible-role-docker
+  version: "4.1.0"

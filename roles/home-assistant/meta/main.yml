@@ -1,0 +1,7 @@
+---
+dependencies:
+  - role: ansible-role-docker
+    become: yes
+    docker_users:
+      - "{{ ansible_user }}"
+      - home-assistant

@@ -3,3 +3,13 @@
   become: yes
   package:
     name: fish
+- name: set fish as the default shell for root
+  become: yes
+  user:
+    name: root
+    shell: /usr/bin/fish
+- name: set fish as the default shell for "{{ target_user }}"
+  become: yes
+  user:
+    name: "{{ target_user }}"
+    shell: /usr/bin/fish
